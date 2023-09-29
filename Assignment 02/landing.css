@@ -139,3 +139,12 @@ footer {
 }
 
 
+.carousel-item{
+
+    width:70%;
+    height: 100vh;
+    top:160px;
+    left: 410px;
+}
+
+
