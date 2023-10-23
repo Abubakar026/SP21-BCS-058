@@ -5,10 +5,10 @@
    
     width: 100%;
     height: 100vh;
-    background:url('./images/01.jpg');
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)),url('./images/01.jpg');
     background-size: cover;  
+    font-family: sans-serif;
     background-attachment:scroll;
-
 }
 
 .foot{
@@ -53,4 +53,65 @@
     margin-top: 5%;
     float: left;
     color: white;
+}
+
+.body2{
+
+    color: white;
+    margin-top: 25%;
+    margin-left: 3%;
+    
+}
+
+#blk{
+    
+    background-color: black;
+}
+
+
+
+.body3{
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)), url('./images/033.jpg');
+    background-size: cover;
+
+}
+
+
+.carousel-item{
+
+    width:70%;
+    height: 100vh;
+    top:160px;
+    left: 410px;
+}
+
+
+.body4{
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)), url('./images/Golf.jpg');
+    background-size: cover;
+
+}
+
+.body4-txt{
+    
+    text-align: center;
+    color: white;
+}
+
+
+.body4-txt1{
+    
+    text-align: center;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.foot{
+
+    background-color: blue;
 }
