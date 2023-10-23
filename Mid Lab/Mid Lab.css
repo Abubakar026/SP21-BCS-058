@@ -7,7 +7,6 @@
     height: 100vh;
     background:url('./images/01.jpg');
     background-size: cover;  
-    font-family: sans-serif;
     background-attachment:scroll;
 
 }
@@ -30,7 +29,21 @@
 }
 
 .img{
-
+    float: left;  
     margin-left: 10%;
     margin-top: 5%;
+}
+
+.txt{
+    float: left;
+    margin-top: 5%;
+    margin-left:2% ;
+    color: white;
+
+}
+
+.txt1{
+    margin-top: 5%;
+    float: left;
+    color: white;
 }
