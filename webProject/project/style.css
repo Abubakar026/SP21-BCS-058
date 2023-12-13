@@ -28,6 +28,30 @@ html{
     scroll-behavior: smooth;
 }
 
+section{
+    padding: 2rem 9%;
+}
+
+.heading{
+    text-align: center;
+    padding: 2.5rem 0;
+
+}
+
+.heading span{
+    font-size: 3.5rem;
+    background: rgba(255, 165, 0, 0.2);
+    color: orange;
+    border-radius: .5rem;
+    padding: .2rem 1rem;
+
+}
+
+.heading span.space{
+    background: none;
+    
+}
+
 header{
     position: fixed;
     top: 0;
@@ -125,13 +149,74 @@ body{
     display: none;
 }
 
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    z-index: 0;
+}
+
+.btn{
+    background-color: var(--orange);
+    color: white;
+
+}
+
+.home .content{
+    text-align: center;
+}
+
+.home .content h3{
+    font-size: 4.5rem;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .1) ;
+}
 
 
+.home .content p{
+    font-size: 2.5rem;
+    color: white;
+    padding: .5rem 0;
+}
+
+.home .video-container video{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home .controls{
+    padding: 1rem;
+    border-radius: 5rem;
+    background: rgba(0, 0, 0, .7);
+    position: relative;
+    top: 10rem;
+}
+
+.home .controls .vid-btn{
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: white;
+    margin: 0 .5rem;
+}
+
+.home .controls .vid-btn.active{
+    background-color: orange;
 
 
-
-
-
+}
 
 
 
@@ -153,6 +238,10 @@ body{
 
 @media (max-width:991px){
     header{
+        padding: 2rem;
+    }
+
+    section{
         padding: 2rem;
     }
 }
