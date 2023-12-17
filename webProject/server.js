@@ -30,36 +30,36 @@ mongoose.connect("mongodb://127.0.0.1:27017/traveldatabase",{
 
 
 app.get("/login",(req,res)=>{
-    res.render("login")
+    res.render("login", {showHeader: false})
 })
 app.get("/sign",(req,res)=>{
-    res.render("sign")
+    res.render("sign", {showHeader: false})
 })
 
 
 app.get("/home",(req,res)=>{
-    res.render("home")
+    res.render("home", {showHeader: true})
 })
 
 
 app.get("/book",(req,res)=>{
-    res.render("book")
+    res.render("book", {showHeader: true})
 })
 
 
 app.get("/packages",(req,res)=>{
-    res.render("packages")
+    res.render("packages", {showHeader: true})
 })
 
 app.get("/services",(req,res)=>{
-    res.render("services")
+    res.render("services", {showHeader: true})
 })
 
 app.get("/contact",(req,res)=>{
-    res.render("contact")
+    res.render("contact", {showHeader: true})
 })
 
-const createNewUser = require("./models/signupOperation");
+const { createNewUser } = require("./models/signupOperation");
 
 //app.post("/sign",async (req,res)=>{
 //    console.log("connected");
@@ -69,14 +69,39 @@ const createNewUser = require("./models/signupOperation");
 
 app.post("/sign", async (req, res) => {
     
-    const { username, email, password } = req.body;
+    const { firstname, lastname, email, password } = req.body;
     
       try {
         console.log("connect");
-        await createNewUser(req, res, req.body.firstName,req.body.lastname, req.body.email, req.body.password);
+        await createNewUser(req, res, firstname, lastname, email, password);
         return;
       } catch (error) {
         console.error("Error registering user:", error);
         res.status(500).send("Internal Server Error");
       }
     })
+
+
+    const { findUserByEmailAndPassword } = require("./functions/loginUserFunction");
+    app.post("/login", async (req, res) => {
+        const { email, password } = req.body;
+        console.log("Email: "+email+"Password: "+password);
+          try {
+            const isUser = await findUserByEmailAndPassword(email, password);
+            if(isUser){
+             // req.session.isAuthenticated = true;
+              console.log("Logged in Succesfully.");
+           //   req.session.user = isUser;
+           //   req.session.userEmail = email;
+            //  req.session.flash = { type: "success", message: "Logged in Successfully" };
+              res.redirect("/home");
+              return;
+            }else{
+              console.log("User not found");
+          //    req.session.flash = { type: "fail", message: "User not found, Not have account? Please Sign Up." };
+              res.redirect("/login");
+            }
+          } catch (error) {
+            console.error("Error registering user:", error);
+          }
+        })

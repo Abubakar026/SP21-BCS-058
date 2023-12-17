@@ -19,17 +19,16 @@
         <form name="formValidation" id="formValidation" action="/sign" method="post"  >
 
             <label >First Name</label>
-            <input type="text" name="firstname" placeholder="first name" required>
+            <input type="text" name="firstname" placeholder="first name" required/>
             <label >Last Name</label>
-            <input type="text" name="lastname" placeholder="last name" required>
+            <input type="text" name="lastname" placeholder="last name" required/>
             <label >Email</label>
-            <input type="email" name="email" placeholder="email" required>
+            <input type="email" name="email" placeholder="email" required />
             <label >Password</label>
-            <input type="text" name="password" placeholder="password" required>
+            <input type="text" name="password" placeholder="password" required />
             <label >Confirm Password</label>
-            <input type="text" name="password1" placeholder="confirm password" required>
-            <input class="btn" type="button" value="submit">
-
+            <input type="text" name="password1" placeholder="confirm password" required />
+            <button type="submit" class="btn btn-primary">Sign up</button>
         </form>
 
         <p class="para">By clicking the Sign Up button,you agree to our <br>
@@ -38,7 +37,7 @@
 
     </div>
 
-    <p  class="para-two">Already have an account? <a href="login.ejs">Login here</a></p>
+    <p  class="para-two">Already have an account? <a href="/login">Login here</a></p>
 
 
 </body>

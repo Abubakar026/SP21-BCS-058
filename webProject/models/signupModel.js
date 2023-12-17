@@ -2,7 +2,7 @@
 const mongoose = require("mongoose")
 
 const signupschema = mongoose.Schema({
-    firstName : String,
+    firstname:String,
     lastname:String,
     email:String,
     password:String
