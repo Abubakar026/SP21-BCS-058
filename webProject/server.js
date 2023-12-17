@@ -41,11 +41,34 @@ app.get("/home",(req,res)=>{
     res.render("home", {showHeader: true})
 })
 
+const {fetchBooking} = require("./models/fetchBookings");
 
-app.get("/book",(req,res)=>{
-    res.render("book", {showHeader: true})
+app.get("/book", async(req,res)=>{
+    try{
+        
+        let bookings = await fetchBooking();
+        res.render("book", {showHeader: true, bookings: bookings});
+    }catch(e){
+        console.log(e);
+    }
 })
 
+const { createNewBooking } = require("./models/bookingOperation");
+
+app.post("/book", async (req, res) => {
+    
+    const {fromto,whereto, arrival, leaving } = req.body;
+    
+      try {
+        console.log("connecting");
+        const email = "zz@gmail.com";
+        await createNewBooking(res, email, fromto, whereto, arrival, leaving);
+        return;
+      } catch (error) {
+        console.error("Error registering user:", error);
+        res.status(500).send("Internal Server Error");
+      }
+    })
 
 app.get("/packages",(req,res)=>{
     res.render("packages", {showHeader: true})

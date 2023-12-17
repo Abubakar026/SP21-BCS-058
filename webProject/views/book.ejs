@@ -26,29 +26,56 @@
             <div class="image">
                 <img src="/assets/book.jpg" alt="">
             </div>
-
-            <form action="">
+            <hr>
+            <h2>Your Bookings</h2>
+            <hr>
+            <div>
+                <% if (bookings.length > 0) { %>
+                    <% bookings.forEach((booking)=> { %>
+                        <div class="">
+                            <div class="">
+                                <%= booking.email %>
+                            </div>
+                            <div class="">
+                                <%= booking.fromto %>
+                            </div>
+                            <div class="">
+                                <%= booking.whereto %>
+                            </div>
+                                        </div>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <p>No feedbacks available.</p>
+                                                <% } %>
+            </div>
+            <form action="/book", method="post">
+                
+                <div class="inputBox">
+                    <h3>from to</h3>
+                    <input type="text" name="fromto" placeholder="place name">
+                </div>
+                
                 <div class="inputBox">
                     <h3>where to</h3>
-                    <input type="text" placeholder="place name">
+                    <input type="text" name="whereto" placeholder="place name">
                 </div>
                 
                 <div class="inputBox">
                     <h3>how many</h3>
-                    <input type="number" placeholder="number of guests">
+                    <input type="number" name="howmany" placeholder="number of guests">
                 </div>
 
                 <div class="inputBox">
                     <h3>arrivals</h3>
-                    <input type="date">
+                    <input type="date" name="arrival">
                 </div>
 
                 
                 <div class="inputBox">
                     <h3>leaving</h3>
-                    <input type="date">
+                    <input type="date" name="leaving">
                 </div>
-                <input type="submit" class="btn" value="book now">
+                <button type="submit" class="btn btn-primary">Book now</button>
 
             </form>
 
