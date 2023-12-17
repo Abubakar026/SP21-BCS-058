@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
 
 :root{
     --orange: orange;
 }
+*/
 
 *{
 font-family: 'Nunito', sans-serif;
@@ -17,7 +18,7 @@ transition: all .2s linear;
 }
 
 *::selection{
-    background: var(--orange);
+    background: orange;
     color: #fff;
 }
 
@@ -89,7 +90,7 @@ header .logo{
 }
 
 header .logo span{
-    color:var(--orange);
+    color: orange;
 }
 
 header .navbar a{
@@ -99,7 +100,7 @@ header .navbar a{
 }
 
 header .navbar a:hover{
-    color: var(--orange);
+    color: orange;
 }
 
 header .icons i{
@@ -148,7 +149,7 @@ header .search-bar-container label{
 }
 
 header .search-bar-container label:hover{
-    color: var(--orange);
+    color: orange;
 }
 
 body{
@@ -206,30 +207,10 @@ body{
     object-fit: cover;
 }
 
-.home .controls{
-    padding: 1rem;
-    border-radius: 5rem;
-    background: rgba(0, 0, 0, .7);
-    position: relative;
-    top: 10rem;
+
+.book{
+    margin-top: 60px;
 }
-
-.home .controls .vid-btn{
-    height: 2rem;
-    width: 2rem;
-    display: inline-block;
-    border-radius: 50%;
-    background: white;
-    margin: 0 .5rem;
-}
-
-.home .controls .vid-btn.active{
-    background-color: orange;
-
-
-}
-
-
 .book .row{
     display: flex;
     flex-wrap: wrap;
@@ -269,6 +250,38 @@ body{
     color: #666;
 }
 
+.booking-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#trip{
+    font-size: 5px;
+}
+
+.booking-email {
+    font-weight: bold;
+}
+
+.fromto,.whereto,.dates {
+    margin-bottom: 5px;
+}
+
+.arrival,.leaving {
+    font-style: italic;
+}
+
+.no-feedback {
+    color: #999;
+    font-style: italic;
+}
+
+
+
+.packages{
+    margin-top: 60px;
+}
 .packages .box-container{
     display: flex;
     flex-wrap: flex;
@@ -330,6 +343,9 @@ body{
 
 }
 
+.services{
+    margin-top: 60px;
+}
 .services .box-container{
     display: flex;
     flex-wrap: wrap;
@@ -363,6 +379,10 @@ body{
 
 .services .box-container .box:hover{
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+}
+
+.contact{
+    margin-top: 60px;
 }
 
 .contact .row{
@@ -514,6 +534,10 @@ body{
 
 .footer .credit span{
     color: orange;
+}
+
+#about{
+    color: white;
 }
 
 

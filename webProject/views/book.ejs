@@ -27,27 +27,45 @@
                 <img src="/assets/book.jpg" alt="">
             </div>
             <hr>
-            <h2>Your Bookings</h2>
+            <h2>My Bookings</h2>
             <hr>
-            <div>
+            <div class="booking-container">
                 <% if (bookings.length > 0) { %>
-                    <% bookings.forEach((booking)=> { %>
-                        <div class="">
-                            <div class="">
-                                <%= booking.email %>
-                            </div>
-                            <div class="">
-                                <%= booking.fromto %>
-                            </div>
-                            <div class="">
-                                <%= booking.whereto %>
-                            </div>
+                    <% bookings.forEach((booking) => { %>
+                        <div class="booking-item">
+                            <div class="booking-details">
+                                <div class="booking-email" id="trip">
+                                    <h4>Email:</h4>
+                                   <h6><%=booking.email %> </h6> 
+                                </div>
+                                <div class="booking-info">
+                                    <div class="fromto" id="trip">
+                                        <h4>From To:</h4>
+                                      <h6><%= booking.fromto %> </h6>
+                                    </div>
+                                    <div class="whereto" id="trip">
+                                        <h4>Where To:</h4>
+                                        <h6><%= booking.whereto %></h6>
+                                    </div>
+                                    <div class="dates">
+                                        <div class="arrival" id="trip">
+                                            <h4>Arrival Date:</h4>
+                                            <h6><%= booking.arrival %></h6>
                                         </div>
-                                        <% }); %>
-                                            <% } else { %>
-                                                <p>No feedbacks available.</p>
-                                                <% } %>
+                                        <div class="leaving" id="trip">
+                                            <h4>Leaving Date:</h4>
+                                            <h6><%= booking.leaving %></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p class="no-feedback">No Booking.</p>
+                <% } %>
             </div>
+            
             <form action="/book", method="post">
                 
                 <div class="inputBox">

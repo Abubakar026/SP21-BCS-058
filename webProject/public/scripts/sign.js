@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
   $('#formValidation').validate({
       rules: {
           firstname: 'required',
@@ -36,4 +36,3 @@ $(document).ready(function() {
           form.submit();
       }
   });
-});

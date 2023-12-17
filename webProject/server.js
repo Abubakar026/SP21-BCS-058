@@ -32,6 +32,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/traveldatabase",{
 app.get("/login",(req,res)=>{
     res.render("login", {showHeader: false})
 })
+
 app.get("/sign",(req,res)=>{
     res.render("sign", {showHeader: false})
 })
@@ -40,6 +41,7 @@ app.get("/sign",(req,res)=>{
 app.get("/home",(req,res)=>{
     res.render("home", {showHeader: true})
 })
+
 
 const {fetchBooking} = require("./models/fetchBookings");
 
@@ -61,7 +63,7 @@ app.post("/book", async (req, res) => {
     
       try {
         console.log("connecting");
-        const email = "zz@gmail.com";
+        const email = "ali@gmail.com";
         await createNewBooking(res, email, fromto, whereto, arrival, leaving);
         return;
       } catch (error) {
@@ -78,17 +80,36 @@ app.get("/services",(req,res)=>{
     res.render("services", {showHeader: true})
 })
 
-app.get("/contact",(req,res)=>{
-    res.render("contact", {showHeader: true})
+const {fetchfeedback} = require("./models/fetchFeedbacks");
+
+app.get("/contact", async(req,res)=>{
+    try{
+        
+        let feedbacks = await fetchfeedback();
+        res.render("feed", {showHeader: true, feedbacks: feedbacks});
+    }catch(e){
+        console.log(e);
+    }
 })
+
+const { createNewFeedback } = require("./models/feedbackOperation");
+
+app.post("/contact", async (req, res) => {
+    
+    const {name,phone, message} = req.body;
+    
+      try {
+        console.log("connecting");
+        await createNewFeedback(res, name,phone, message);
+        return;
+      } catch (error) {
+        console.error("Error giving feedback:", error);
+        res.status(500).send("Internal Server Error");
+      }
+    })
 
 const { createNewUser } = require("./models/signupOperation");
 
-//app.post("/sign",async (req,res)=>{
-//    console.log("connected");
-//    await createNewUser(req, res, req.body.firstName,req.body.lastname, req.body.email, req.body.password);
-
-//})
 
 app.post("/sign", async (req, res) => {
     

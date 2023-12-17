@@ -13,13 +13,14 @@
     <section class="contact" id="contact">
 
         <h1 class="heading">
-            <span>c</span>
-            <span>o</span>
-            <span>n</span>
-            <span>t</span>
+            <span>f</span>
+            <span>e</span>
+            <span>e</span>
+            <span>d</span>
+            <span>b</span>
             <span>a</span>
             <span>c</span>
-            <span>t</span>
+            <span>k</span>
         </h1>
 
         <div class="row">
@@ -27,23 +28,49 @@
                 <img src="/assets/contact.jpg" alt="">
             </div>
 
-            <form action="">
+            <form  action="/feedback", method="post">
                 <div class="inputBox">
-                    <input type="text" placeholder="name">
-                    <input type="email" placeholder="email">
+                    <input type="text" name="name" placeholder="name">
+                    <input  name="phone" placeholder="phone">
                 </div>
 
-                <div class="inputBox">
-                    <input type="number" placeholder="number">
-                    <input type="text" placeholder="subject">
-                </div>
-
-                <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
-                <input type="submit" class="btn" value="send message">
+                <textarea placeholder="message" name="message" id="" cols="30" rows="10"></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
 
             </form>
   
         </div>
+
+        <hr>
+            <h2>Feedbacks</h2>
+            <hr>
+            <div class="booking-container">
+                <% if (feedbacks.length > 0) { %>
+                    <% feedbacks.forEach((feedback) => { %>
+                        <div class="booking-item">
+                            <div class="booking-details">
+                                <div class="booking-email" id="trip">
+                                    <h4>Name:</h4>
+                                   <h6><%=feedback.name %> </h6> 
+                                </div>
+                                <div class="booking-info">
+                                    <div class="fromto" id="trip">
+                                        <h4>Phone:</h4>
+                                      <h6><%= feedback.phone %> </h6>
+                                    </div>
+                                    <div class="whereto" id="trip">
+                                        <h4>Message:</h4>
+                                        <h6><%= feedback.message %></h6>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p class="no-feedback">No Feedback.</p>
+                <% } %>
+            </div>
+            
 
     </section>
 
