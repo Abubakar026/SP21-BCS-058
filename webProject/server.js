@@ -94,7 +94,7 @@ app.get("/contact", async(req,res)=>{
 
 const { createNewFeedback } = require("./models/feedbackOperation");
 
-app.post("/contact", async (req, res) => {
+app.post("/feedback", async (req, res) => {
     
     const {name,phone, message} = req.body;
     
@@ -108,8 +108,9 @@ app.post("/contact", async (req, res) => {
       }
     })
 
-const { createNewUser } = require("./models/signupOperation");
 
+
+const { createNewUser } = require("./models/signupOperation");
 
 app.post("/sign", async (req, res) => {
     
@@ -133,16 +134,11 @@ app.post("/sign", async (req, res) => {
           try {
             const isUser = await findUserByEmailAndPassword(email, password);
             if(isUser){
-             // req.session.isAuthenticated = true;
               console.log("Logged in Succesfully.");
-           //   req.session.user = isUser;
-           //   req.session.userEmail = email;
-            //  req.session.flash = { type: "success", message: "Logged in Successfully" };
               res.redirect("/home");
               return;
             }else{
               console.log("User not found");
-          //    req.session.flash = { type: "fail", message: "User not found, Not have account? Please Sign Up." };
               res.redirect("/login");
             }
           } catch (error) {
