@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/final.css">
+</head>
+<body>
+   
+
+  <h1>Calculator Form</h1>
+
+  <form class="d-flex" id="searchForm" method="POST">
+  
+      <input class="form-control me-2" type="number" placeholder="Operand 1" aria-label="operand1" name="operand1" id="op1">
+      
+      <select class="form-select me-2" aria-label="operator" name="operator" placeholder="Operator" id="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="/">/</option>
+          <option value=""></option>
+      </select>
+      
+      <input class="form-control me-2" type="number" aria-label="operand2"  placeholder="Operand 2" name="operand2" id="op2" >
+  
+      <button class="btn btn-outline-success" type="submit">Calculate</button>
+  
+  </form>
+  
+  
+  
+  
+<h2>Previous Results</h2>
+  <table class="table table-hover">
+      <tr>
+          <th>Operand 1</th>
+          <th>Operator</th>
+          <th>Operand 2</th>
+          <th>Result</th>
+      </tr>
+      <% for (let i = 0; i < operations.length; i++) { %>
+          <tr>
+              <td><%= operations[i].operand1 %></td>
+              <td><%= operations[i].operator %></td>
+              <td><%= operations[i].operand2 %></td>
+              <td><%= operations[i].result %></td>
+          </tr>
+      <% } %>
+  </table>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

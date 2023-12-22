@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+
+    <div class="login-box">
+        <h1>Login</h1>
+
+        <form name="formValidation" id="formValidation" action="/login" method="post">
+            <label >Email</label>
+            <input type="email" name="email" placeholder="" required>
+            <label >Password</label>
+            <input type="password" name="password" placeholder="" required>
+            <button type="submit" class="btn btn-primary" id="button">Sign in</button>
+        </form>
+    </div>
+
+    <p class="para-two">Not have an account? <a href="/sign">Sign Up Here</a></p>
+
+    
+</body>
+</html>
